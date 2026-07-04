@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Room Rent Website</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Room Rent Finder</h1>
+  <p>Find and Post Rooms Easily</p>
+</header>
+
+<section class="form">
+  <h2>Add Your Room</h2>
+  <input type="text" id="owner" placeholder="Owner Name">
+  <input type="text" id="location" placeholder="Location">
+  <input type="number" id="price" placeholder="Price">
+  <button onclick="addRoom()">Add Room</button>
+</section>
+
+<section id="rooms">
+  <h2>Available Rooms</h2>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+body{
+  font-family: Arial;
+  margin:0;
+  background:#f2f2f2;
+}
+
+header{
+  background:#2c3e50;
+  color:white;
+  text-align:center;
+  padding:20px;
+}
+
+.form{
+  background:white;
+  padding:20px;
+  margin:20px;
+  border-radius:10px;
+}
+
+input{
+  display:block;
+  width:90%;
+  margin:10px 0;
+  padding:10px;
+}
+
+button{
+  padding:10px 20px;
+  background:green;
+  color:white;
+  border:none;
+  cursor:pointer;
+}
+
+#rooms{
+  margin:20px;
+}
+
+.room{
+  background:white;
+  padding:10px;
+  margin:10px 0;
+  border-radius:8px;
+}
+
+function addRoom(){
+  let owner = document.getElementById("owner").value;
+  let location = document.getElementById("location").value;
+  let price = document.getElementById("price").value;
+
+  let roomBox = document.createElement("div");
+  roomBox.className = "room";
+
+  roomBox.innerHTML = `
+    <h3>${owner}</h3>
+    <p>Location: ${location}</p>
+    <p>Price: ₹${price}</p>
+  `;
+
+  document.getElementById("rooms").appendChild(roomBox);
+}
