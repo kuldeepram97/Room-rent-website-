@@ -1,48 +1,154 @@
+main agle message me index.html – Part 1 bhejta hoon.
+
+Shuru kar do 
+
+Bilkul! Chalo RoomNest ka pehla file shuru karte hain. Yeh index.html – Part 1 hai.
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Room Rent Finder</title>
-    <link rel="stylesheet" href="style.css">
+    <title>RoomNest - Find Your Perfect Room</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
+
 <body>
 
-<header>
-    <h1>🏠 Room Rent Finder</h1>
-    <p>Find & Post Rooms Easily</p>
+<!-- ================= NAVBAR ================= -->
+
+<header class="header">
+
+    <div class="logo">
+        <i class="fa-solid fa-house"></i>
+        <span>RoomNest</span>
+    </div>
+
+    <nav>
+
+        <ul>
+
+            <li><a href="index.html">Home</a></li>
+
+            <li><a href="rooms.html">Rooms</a></li>
+
+            <li><a href="about.html">About</a></li>
+
+            <li><a href="contact.html">Contact</a></li>
+
+            <li><a href="login.html" class="login-btn">
+                Login
+            </a></li>
+
+        </ul>
+
+    </nav>
+
 </header>
 
-<div class="container">
+<!-- ================= HERO ================= -->
 
-<h2>Add Your Room</h2>
+<section class="hero">
 
-<input type="text" id="owner" placeholder="Owner Name">
-<input type="text" id="location" placeholder="Location">
-<input type="number" id="price" placeholder="Monthly Rent">
-<input type="text" id="phone" placeholder="WhatsApp Number">
+    <div class="hero-content">
 
-<button onclick="addRoom()">Add Room</button>
+        <h1>
+            Find Your Perfect Room
+        </h1>
 
-<hr>
+        <p>
 
-<h2>Available Rooms</h2>
+            Search verified rooms, PGs and flats across India.
 
-<div id="rooms"></div>
+        </p>
+
+        <div class="search-box">
+
+            <input
+            type="text"
+            placeholder="Enter City">
+
+            <select>
+
+                <option>Budget</option>
+
+                <option>₹3000 - ₹5000</option>
+
+                <option>₹5000 - ₹8000</option>
+
+                <option>₹8000+</option>
+
+            </select>
+
+            <button>
+
+                Search
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= FEATURED ROOMS ================= -->
+
+<section class="featured">
+
+<h2>
+
+Featured Rooms
+
+</h2>
+
+<div class="room-container">
+
+<div class="room-card">
+
+<img src="images/room1.jpg">
+
+<h3>Modern Single Room</h3>
+
+<p>📍 Delhi</p>
+
+<h4>₹6,500 / Month</h4>
+
+<a href="#">View Details</a>
 
 </div>
 
-<script src="script.js"></script>
-<a href="https://wa.me/+918894309797?text=Hello%20I%20want%20to%20know%20about%20your%20room"
-   class="whatsapp-float"
-   target="_blank">
-    💬 WhatsApp
-</a>
-    <a href="https://wa.me/+918894309797?text=Hello%20I%20am%20interested%20in%20your%20room"
-   class="whatsapp-float"
-   target="_blank"
-   aria-label="Chat on WhatsApp">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-    </a>
-</body>
-</html>
+<div class="room-card">
+
+<img src="images/room2.jpg">
+
+<h3>Luxury PG</h3>
+
+<p>📍 Chandigarh</p>
+
+<h4>₹8,000 / Month</h4>
+
+<a href="#">View Details</a>
+
+</div>
+
+<div class="room-card">
+
+<img src="images/room3.jpg">
+
+<h3>Family Room</h3>
+
+<p>📍 Solan</p>
+
+<h4>₹9,500 / Month</h4>
+
+<a href="#">View Details</a>
+
+</div>
+
+</div>
+
+</section>
