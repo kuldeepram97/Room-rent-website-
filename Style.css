@@ -71,3 +71,21 @@ a{
 .whatsapp-float:hover {
     transform: scale(1.1);
 }
+.room button{
+    width:48%;
+    margin-top:10px;
+    padding:10px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.room button:first-of-type{
+    background:#3498db;
+    color:white;
+}
+
+.room button:last-of-type{
+    background:#e74c3c;
+    color:white;
+}
