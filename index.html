@@ -121,7 +121,27 @@ WhatsApp Owner
 
 </div>
 <h2>Add Your Room</h2>
+<h2>Search Rooms</h2>
 
+<input type="text" id="search" placeholder="Search by city or location">
+
+<button onclick="searchRoom()">Search</button>
+
+<script>
+function searchRoom(){
+  let value = document.getElementById("search").value.toLowerCase();
+  let rooms = document.querySelectorAll(".room-card");
+
+  rooms.forEach(room => {
+    let text = room.innerText.toLowerCase();
+    if(text.includes(value)){
+      room.style.display = "block";
+    } else {
+      room.style.display = "none";
+    }
+  });
+}
+</script>
 <form>
   <input type="text" placeholder="Room Name" required><br><br>
 
