@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Add Room Test</title>
+<title>Add Room</title>
+
 <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
@@ -14,33 +16,34 @@
 <h2>Add New Room</h2>
 
 <form id="roomForm">
-<input type="text" id="title" placeholder="Room Title" required><br><br>
 
-<input type="text" id="location" placeholder="Location" required><br><br>
+<input type="text" id="title" placeholder="Room Title" required>
+<br><br>
 
-<input type="number" id="rent" placeholder="Monthly Rent" required><br><br>
+<input type="text" id="location" placeholder="Location" required>
+<br><br>
 
-<input type="file" id="image" required><br><br>
+<input type="number" id="rent" placeholder="Monthly Rent" required>
+<br><br>
 
-<textarea id="description" placeholder="Room Description"></textarea><br><br>
+<input type="file" id="image">
+<br><br>
+
+<textarea id="description" placeholder="Room Description"></textarea>
+<br><br>
 
 <button type="submit">Submit</button>
 
 </form>
 
 </div>
-<script>
-<button type="button" onclick="test()">Submit</button>
 
 <script>
-function test(){
-  alert("Button chal raha hai");
-}
+document.getElementById("roomForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    alert("Button chal raha hai");
+});
 </script>
-
-</body>
-</html>
-
 
 </body>
 </html>
