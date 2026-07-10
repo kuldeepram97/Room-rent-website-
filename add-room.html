@@ -6,22 +6,24 @@
 <title>Add Room</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
 <div class="container">
+
 <h2>Add New Room</h2>
 
-<form>
+<form id="roomForm">
 
-<input type="text" placeholder="Room Title" required><br><br>
+<input type="text" id="title" placeholder="Room Title" required><br><br>
 
-<input type="text" placeholder="Location" required><br><br>
+<input type="text" id="location" placeholder="Location" required><br><br>
 
-<input type="number" placeholder="Monthly Rent" required><br><br>
+<input type="number" id="rent" placeholder="Monthly Rent" required><br><br>
 
-<input type="file"><br><br>
+<input type="file" id="image" required><br><br>
 
-<textarea placeholder="Room Description"></textarea><br><br>
+<textarea id="description" placeholder="Room Description"></textarea><br><br>
 
 <button type="submit">Submit</button>
 
@@ -29,9 +31,9 @@
 
 </div>
 
+
+<script type="module" src="firebase.js"></script>
+<script type="module" src="add-room.js"></script>
+
 </body>
 </html>
-<br><br>
-
-<a href="add-room.html">
-  
