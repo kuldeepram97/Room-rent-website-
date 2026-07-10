@@ -1,3 +1,4 @@
+alert("JS Connected");
 console.log("add-room.js loaded");
 import { storage, db } from "./firebase.js";
 
