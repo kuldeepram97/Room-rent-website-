@@ -1,112 +1,52 @@
-body{
-    font-family: Arial, sans-serif;
-    margin:0;
-    background:#f2f2f2;
-}
+import { db, storage } from "./firebase.js";
 
-header{
-    background:#2c3e50;
-    color:white;
-    text-align:center;
-    padding:20px;
-}
+import {
+  collection,
+  addDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-.container{
-    width:90%;
-    max-width:700px;
-    margin:auto;
-    padding:20px;
-}
+import {
+  ref,
+  uploadBytes,
+  getDownloadURL
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 
-input{
-    width:100%;
-    padding:10px;
-    margin:8px 0;
-}
+const form = document.getElementById("roomForm");
 
-button{
-    width:100%;
-    padding:12px;
-    background:#27ae60;
-    color:white;
-    border:none;
-    cursor:pointer;
-}
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-.room{
-    background:white;
-    padding:15px;
-    margin-top:15px;
-    border-radius:8px;
-}
+  try {
+    const roomName = document.getElementById("roomName").value.trim();
+    const location = document.getElementById("location").value.trim();
+    const rent = document.getElementById("rent").value.trim();
+    const owner = document.getElementById("owner").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const image = document.getElementById("image").files[0];
 
-a{
-    text-decoration:none;
-    color:white;
-}
+    let imageURL = "";
 
-.whatsapp{
-    background:#25D366;
-    padding:10px;
-    display:inline-block;
-    border-radius:5px;
-}
-.whatsapp-float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 20px;
-    right: 20px;
-    background: #25D366;
-    color: white;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 60px;
-    font-size: 24px;
-    text-decoration: none;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    z-index: 1000;
-}
+    if (image) {
+      const imageRef = ref(storage, "rooms/" + Date.now() + "_" + image.name);
+      await uploadBytes(imageRef, image);
+      imageURL = await getDownloadURL(imageRef);
+    }
 
-.whatsapp-float:hover {
-    transform: scale(1.1);
-}
-.room button{
-    width:48%;
-    margin-top:10px;
-    padding:10px;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
-}
+    await addDoc(collection(db, "rooms"), {
+      roomName,
+      location,
+      rent,
+      owner,
+      phone,
+      imageURL,
+      createdAt: new Date()
+    });
 
-.room button:first-of-type{
-    background:#3498db;
-    color:white;
-}
+    alert("Room Added Successfully!");
+    form.reset();
 
-.room button:last-of-type{
-    background:#e74c3c;
-    color:white;
-}
-whatsapp-float{
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    background: #25D366;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    font-size: 30px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    z-index: 999;
-}
-
-.whatsapp-float:hover{
-    background: #1ebe5d;
-}
+  } catch (error) {
+    console.error(error);
+    alert("Error: " + error.message);
+  }
+});
